@@ -5,6 +5,24 @@
          version="2.5"
          xmlns="http://java.sun.com/xml/ns/javaee">
 
+	<context-param>
+	  <param-name>contextConfigLocation</param-name>
+	  <param-value>com.potkal.bendenetteyim.spring.conf.MainConfiguration</param-value>
+	</context-param>
+	
+	<context-param>
+      <param-name>contextClass</param-name>
+      <param-value>
+          org.springframework.web.context.support.AnnotationConfigWebApplicationContext
+      </param-value>
+  </context-param>
+	
+	<listener>
+	  <listener-class>
+	     org.springframework.web.context.ContextLoaderListener
+	  </listener-class>
+	</listener>
+
   <!-- Servlets -->
   <servlet>
     <servlet-name>greetServlet</servlet-name>

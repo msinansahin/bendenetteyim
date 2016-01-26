@@ -1,14 +1,19 @@
-package com.potkal.bendenetteyim.business;
+package com.potkal.bendenetteyim.spring.business;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.InitializingBean;
+import org.springframework.stereotype.Service;
 
 import com.potkal.bendenetteyim.domain.User;
 
-public class UserServiceImpl implements UserService {
+@Service
+public class UserServiceImpl implements UserService, InitializingBean {
 
+	private static final Logger LOGGER = Logger.getLogger(UserServiceImpl.class.getName());
 	private static List<User> users = new ArrayList<>();
 	
 	static {
@@ -28,6 +33,12 @@ public class UserServiceImpl implements UserService {
 			}
 		}
 		return result;
+	}
+
+
+	@Override
+	public void afterPropertiesSet() throws Exception {
+		LOGGER.info(UserServiceImpl.class.getName() + " initialized");
 	}
 
 }

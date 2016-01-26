@@ -1,4 +1,4 @@
-package com.potkal.bendenetteyim.business;
+package com.potkal.bendenetteyim.spring.business;
 
 public interface UserService {
 
